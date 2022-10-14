@@ -56,12 +56,14 @@ def magic_square(arr: list_of_list_of_int) -> list_of_list_of_int:
 
 
 def magic_constant(arr: list_of_list_of_int):
+    """
+    Calculate the common sum or magic constant using diagoanl elements
+    """
+    
     n: int = len(arr)
     result: int = 0
     for i in range(n):
-        for j in range(n):
-            if i == j:
-                result += arr[i][j]
+        result += arr[i][i]
     return result
 
     
@@ -69,12 +71,12 @@ def magic_constant(arr: list_of_list_of_int):
 if __name__ == "__main__":
     start_time = time.perf_counter()
     
-    n: int = 11
+    n: int = 7
     arr: list_of_list_of_int = create_grid(n)
     arr: list_of_list_of_int = magic_square(arr)
     magic_const =  magic_constant(arr)
     
     print(f"Execution Time: {(time.perf_counter() - start_time)} seconds\n")
     print(f"The magic-square table for {n = } is: ")
-    print(tabulate(arr, tablefmt="github"))
+    print(tabulate(arr, tablefmt="grid"))
     print(f"Magic constant is: {magic_const}")
