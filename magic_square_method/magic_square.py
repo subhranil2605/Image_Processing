@@ -53,14 +53,28 @@ def magic_square(arr: list_of_list_of_int) -> list_of_list_of_int:
         start_col = new_col
 
     return arr
+
+
+def magic_constant(arr: list_of_list_of_int):
+    n: int = len(arr)
+    result: int = 0
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                result += arr[i][j]
+    return result
+
+    
     
 if __name__ == "__main__":
     start_time = time.perf_counter()
     
-    n: int = 5
+    n: int = 11
     arr: list_of_list_of_int = create_grid(n)
     arr: list_of_list_of_int = magic_square(arr)
+    magic_const =  magic_constant(arr)
     
     print(f"Execution Time: {(time.perf_counter() - start_time)} seconds\n")
     print(f"The magic-square table for {n = } is: ")
-    print(tabulate(arr, tablefmt="grid"))
+    print(tabulate(arr, tablefmt="github"))
+    print(f"Magic constant is: {magic_const}")
