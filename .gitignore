@@ -2,5 +2,11 @@
 *.jpeg
 *.png
 *.pgm
-*.idea
 *__pycache__
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# dotenv
+.env
+.idea
